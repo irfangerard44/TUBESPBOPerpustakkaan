@@ -16,6 +16,7 @@ public class MenuUtama extends javax.swing.JFrame {
      */
     public MenuUtama() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     public void hakAksesAdmin(){
         mAdmin.setVisible(true);
@@ -40,13 +41,14 @@ public class MenuUtama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        exit = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mAdmin = new javax.swing.JMenu();
         Anggota = new javax.swing.JMenuItem();
         Kategori = new javax.swing.JMenuItem();
         Buku = new javax.swing.JMenuItem();
         mTransaksi = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        Peminjaman = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         mLaporan = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -55,9 +57,15 @@ public class MenuUtama extends javax.swing.JFrame {
         mSetting = new javax.swing.JMenu();
         setting = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
-        Keluar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        exit.setText("Keluar");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
 
         mAdmin.setText("Admin");
 
@@ -89,8 +97,13 @@ public class MenuUtama extends javax.swing.JFrame {
 
         mTransaksi.setText("Transaksi");
 
-        jMenuItem4.setText("Peminjaman Buku");
-        mTransaksi.add(jMenuItem4);
+        Peminjaman.setText("Peminjaman Buku");
+        Peminjaman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PeminjamanActionPerformed(evt);
+            }
+        });
+        mTransaksi.add(Peminjaman);
 
         jMenuItem5.setText("Pengembalian Buku");
         mTransaksi.add(jMenuItem5);
@@ -135,20 +148,23 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jMenuBar1.add(mSetting);
 
-        Keluar.setText("Keluar");
-        jMenuBar1.add(Keluar);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(509, Short.MAX_VALUE)
+                .addComponent(exit)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(231, Short.MAX_VALUE)
+                .addComponent(exit)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -165,13 +181,10 @@ public class MenuUtama extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         new MBuku().setVisible(true);
     }                                          
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        //new Peminjaman().setVisible(true);
-    }                                          
+                                          
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-        //new MasterSetting().setVisible(true);
+        //new Setting().setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void settingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingActionPerformed
@@ -197,6 +210,16 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         new DataKategori().setVisible(true);
     }//GEN-LAST:event_KategoriActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exitActionPerformed
+
+    private void PeminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeminjamanActionPerformed
+        // TODO add your handling code here:
+        new Peminjaman().setVisible(true);
+    }//GEN-LAST:event_PeminjamanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,10 +258,10 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenuItem Anggota;
     private javax.swing.JMenuItem Buku;
     private javax.swing.JMenuItem Kategori;
-    private javax.swing.JMenu Keluar;
+    private javax.swing.JMenuItem Peminjaman;
+    private javax.swing.JButton exit;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;

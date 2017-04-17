@@ -35,6 +35,7 @@ PeminjamanModel pm=new PeminjamanModel();
         tgl1.setDateFormatString("yyyy-MM-dd");
         tgl2.setDate(new java.util.Date());
         tgl2.setDateFormatString("yyyy-MM-dd");
+        setLocationRelativeTo(null);
     }
 
      private void buatTabel() {

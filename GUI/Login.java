@@ -11,6 +11,7 @@ package perpustakaanapp.tubes.GUI;
  */
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import perpustakaanapp.tubes.Model.PenggunaModel;
 public class Login extends javax.swing.JDialog {
@@ -22,6 +23,7 @@ public class Login extends javax.swing.JDialog {
     public Login(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

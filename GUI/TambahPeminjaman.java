@@ -40,6 +40,7 @@ public class TambahPeminjaman extends javax.swing.JFrame {
         ambilDataSetting();
         tampilTanggal();
         txtNoPinjam.setText(pm.buatNoPinjam());
+        setLocationRelativeTo(null);
     }
 
     private void buatTabelDetailBuku() {
@@ -208,6 +209,7 @@ public class TambahPeminjaman extends javax.swing.JFrame {
         txtTglKembali = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBuku = new javax.swing.JTable();
+        btnCariAnggota = new javax.swing.JButton();
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -569,10 +571,10 @@ public class TambahPeminjaman extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(30, 30, 30)
                 .addComponent(txtKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(btnCariBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNmBuku)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtNmBuku, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTambahBuku)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -622,6 +624,13 @@ public class TambahPeminjaman extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblBuku);
 
+        btnCariAnggota.setText(":::");
+        btnCariAnggota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariAnggotaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -638,6 +647,8 @@ public class TambahPeminjaman extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNoPinjam)
                             .addComponent(txtNoAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCariAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -668,11 +679,13 @@ public class TambahPeminjaman extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNoAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCariAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(txtNoAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(txtTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -699,11 +712,13 @@ public class TambahPeminjaman extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCariBukuActionPerformed
 
     private void btnTambahBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahBukuActionPerformed
+        JOptionPane.showMessageDialog(null, max_buku);
         if (txtKodeBuku.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Anda belum memilih Buku");
         } else {
             //untuk validasi jml pinjam
             if (tblBuku.getRowCount() + 1 > max_buku) {
+                JOptionPane.showMessageDialog(null, tblBuku.getRowCount()+1);
                 JOptionPane.showMessageDialog(null, "Maksimal pinjam buku adalah " + max_buku);
             } else {
                 //validasi untuk buku yg sama
@@ -852,6 +867,16 @@ public class TambahPeminjaman extends javax.swing.JFrame {
         relasiBuku.setVisible(false);
     }//GEN-LAST:event_tblCariBukuMouseClicked
 
+    private void btnCariAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariAnggotaActionPerformed
+        buatTabelAnggota();
+        tampilAnggota();
+        txtCari.setText(null);
+        relasiAnggota.setSize(537, 461);
+        relasiAnggota.setLocationRelativeTo(this);
+        relasiAnggota.setVisible(true);
+        txtCari.requestFocus();
+    }//GEN-LAST:event_btnCariAnggotaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -892,6 +917,7 @@ public class TambahPeminjaman extends javax.swing.JFrame {
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnBatalAnggota;
     private javax.swing.JButton btnBatalBuku;
+    private javax.swing.JButton btnCariAnggota;
     private javax.swing.JButton btnCariBuku;
     private javax.swing.JButton btnHapusBuku;
     private javax.swing.JButton btnPilih;

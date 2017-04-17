@@ -31,6 +31,7 @@ public class DataKategori extends javax.swing.JFrame {
         bersihText();
         buatTabel();
         tampilTabel();
+        setLocationRelativeTo(null);
     }
     public void bersihText(){
         txtNama.setText(null);        
@@ -144,6 +145,11 @@ public class DataKategori extends javax.swing.JFrame {
         });
 
         Keluar.setText("Keluar");
+        Keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -238,6 +244,11 @@ public class DataKategori extends javax.swing.JFrame {
             SimpanActionPerformed(null);
         }
     }//GEN-LAST:event_txtNamaKeyPressed
+
+    private void KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarActionPerformed
+        // TODO add your handling code here:
+         dispose();
+    }//GEN-LAST:event_KeluarActionPerformed
 
     
     /**

@@ -43,6 +43,7 @@ public class MBuku extends javax.swing.JFrame {
         tampilTabel();
         ID.setVisible(true);
         txtIdBuku.setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     private void bersihText() {
@@ -287,6 +288,11 @@ public class MBuku extends javax.swing.JFrame {
         });
 
         Keluar.setText("Keluar");
+        Keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -563,7 +569,7 @@ public class MBuku extends javax.swing.JFrame {
             bersihText();
             siapIsi(false);
             tampilTabel();
-            Tambah.setEnabled(true); 
+            Tambah.setEnabled(  true); 
             Simpan.setEnabled(false);
             Hapus.setEnabled(false);
             Edit.setEnabled(false);
@@ -572,6 +578,11 @@ public class MBuku extends javax.swing.JFrame {
             Edit.setText("Edit");
         }
     }//GEN-LAST:event_SimpanActionPerformed
+
+    private void KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarActionPerformed
+        // TODO add your handling code here:
+         dispose();
+    }//GEN-LAST:event_KeluarActionPerformed
 
     
     

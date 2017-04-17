@@ -21,7 +21,7 @@ public class KoneksiDB {
     public static Connection ambilKoneksi(){
         if(koneksi==null){
             try{
-                String server="jdbc:mysql://localhost:3306/perpustakaan1";
+                String server="jdbc:mysql://localhost:3306/perpustakaandb";
                 String user="root";
                 String password="";
                 Class.forName("com.mysql.jdbc.Driver");
@@ -35,7 +35,7 @@ public class KoneksiDB {
     
     public void koneksi(){
             try{
-                String server="jdbc:mysql://localhost:3306/perpustakaan1";
+                String server="jdbc:mysql://localhost:3306/perpustakaandb";
                 String user="root";
                 String password="";
                 Class.forName("com.mysql.jdbc.Driver");
